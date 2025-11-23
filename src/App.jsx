@@ -1,27 +1,24 @@
 import React, { useState } from "react";
 
-// Beads by Vanelle - Single-file React App
-// Remplacez src/App.jsx par ce fichier dans une app Vite + React.
-
 export default function App() {
-  const [currentView, setCurrentView] = useState("collections"); // collections | bracelets | collier | accessoires | braceletCategory
+  const [currentView, setCurrentView] = useState("collections");
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const braceletCategories = [
     {
       name: "Bracelets simples",
       images: ["/images/39.jpeg", "/images/15.jpeg"],
-      price: "200F💝"
+      price: "200F"
     },
     {
       name: "Bracelets Yin-Yang",
       images: ["/images/21.jpeg", "/images/7.jpeg"],
-      price: "600F💝"
+      price: "600F"
     },
     {
       name: "Bracelets Papillon",
       images: ["/images/22.jpeg", "/images/31.jpeg"],
-      price: "300F💝"
+      price: "300F"
     }
   ];
 
@@ -37,7 +34,6 @@ export default function App() {
     "/images/accessoire-3.jpeg"
   ];
 
-  // Fonction pour afficher les collections principales
   const renderCollections = () => (
     <div className="grid-3">
       <div className="card">
@@ -63,7 +59,6 @@ export default function App() {
     </div>
   );
 
-  // Fonction pour afficher les catégories de bracelets
   const renderBraceletCategories = () => (
     <div>
       <h3>Catégories de Bracelets</h3>
@@ -80,11 +75,13 @@ export default function App() {
           </div>
         ))}
       </div>
-      <button className="btn" style={{ marginTop: 16 }} onClick={() => setCurrentView("collections")}>Retour aux collections</button>
+      <button className="btn" style={{ marginTop: 16 }} onClick={() => setCurrentView("collections")}>
+        Retour aux collections
+      </button>
     </div>
   );
 
-  // Fonction pour afficher les images d'une catégorie de bracelet ou de collier/accessoire
+  // ← LA PARTIE MAGIQUE (bouton retour intelligent)
   const renderImages = (images) => (
     <div>
       <div className="gallery" style={{ marginTop: 16 }}>
@@ -92,14 +89,21 @@ export default function App() {
           <img key={idx} src={img} alt={`img-${idx}`} />
         ))}
       </div>
-      <button className="btn" style={{ marginTop: 16 }} onClick={() => {
-        if (selectedCategory) {
-          setCurrentView("bracelets");        // si on vient d’une catégorie de bracelet → retour aux catégories bracelets
-          setSelectedCategory(null);
-        } else {
-          setCurrentView("collections");     // sinon (colliers ou accessoires) → retour direct à l’accueil
-        }
-        }}>
+
+      <button
+        className="btn"
+        style={{ marginTop: 16 }}
+        onClick={() => {
+          if (selectedCategory) {
+            // on vient d’une sous-catégorie de bracelet → on retourne à la liste des bracelets
+            setCurrentView("bracelets");
+            setSelectedCategory(null);
+          } else {
+            // on vient de Colliers ou Accessoires → on retourne à l’accueil
+            setCurrentView("collections");
+          }
+        }}
+      >
         Retour aux collections
       </button>
     </div>
@@ -156,7 +160,7 @@ export default function App() {
           <div className="hero-left">
             <h1 className="brand">Beads by Vanelle</h1>
             <p className="tag">Bijoux et accessoires faits à la main — uniques et personnalisables</p>
-            <button className="btn" onClick={() => { window.scrollTo({top:800, behavior:'smooth'}) }}>Voir la collection</button>
+            <button className="btn" onClick={() => window.scrollTo({top:800, behavior:'smooth'})}>Voir la collection</button>
           </div>
           <img className="hero-photo" src="/images/35.jpeg" alt="Bracelet en perles" />
         </header>
@@ -169,29 +173,20 @@ export default function App() {
           {currentView === "braceletCategory" && selectedCategory && renderImages(selectedCategory.images)}
           {currentView === "collier" && renderImages(colliers)}
           {currentView === "accessoires" && renderImages(accessoires)}
-
         </section>
 
+        {/* Le reste du site reste identique */}
         <section className="features" aria-label="avantages">
-          <div className="feature">
-            <h4>✨ Fait main</h4>
-            <p>Chaque pièce est fabriquée avec soin.</p>
-          </div>
-          <div className="feature">
-            <h4>💎 Perles de qualité</h4>
-            <p>Matériaux durables et beaux.</p>
-          </div>
-          <div className="feature">
-            <h4>🎁 Personnalisations</h4>
-            <p>personnalisables sur demande.</p>
-          </div>
+          <div className="feature"><h4>Fait main</h4><p>Chaque pièce est fabriquée avec soin.</p></div>
+          <div className="feature"><h4>Perles de qualité</h4><p>Matériaux durables et beaux.</p></div>
+          <div className="feature"><h4>Personnalisations</h4><p>personnalisables sur demande.</p></div>
         </section>
 
         <section className="about" aria-labelledby="about">
           <img src="/images/vanelle.jpeg" alt="Vanelle" />
           <div>
             <h3>À propos</h3>
-            <p>Je suis Vanelle, créatrice passionnée. J'imagine et je crée chaque pièce à la main. Mon objectif est d'offrir des bijoux qui racontent une histoire.</p>
+            <p>Je suis Vanelle, créatrice passionnée. J'imagine et je crée chaque pièce à la main. Mon objectif est d’offrir des bijoux qui racontent une histoire.</p>
             <p style={{marginTop:8}}>Tu peux commander directement via WhatsApp ou Instagram.</p>
           </div>
         </section>
@@ -199,7 +194,7 @@ export default function App() {
         <section className="contact" aria-labelledby="contact">
           <div>
             <h4>Contact</h4>
-            <p>WhatsApp: <a href="https://wa.me/2376XXXXXXXX" target="_blank" rel="noreferrer">+237 682108805</a></p>
+            <p>WhatsApp: <a href="https://wa.me/237682108805" target="_blank" rel="noreferrer">+237 682108805</a></p>
           </div>
           <div>
             <button className="btn" onClick={() => window.open('https://wa.me/237682108805','_blank')}>Commander par WhatsApp</button>
@@ -217,9 +212,7 @@ export default function App() {
           <p style={{marginTop:12, fontStyle:'italic', textAlign:'center'}}>« Là où le beau rencontre le naturel »</p>
         </section>
 
-        <footer>
-          © {new Date().getFullYear()} Beads by Vanelle — Fait main à Yaoundé
-        </footer>
+        <footer>© {new Date().getFullYear()} Beads by Vanelle — Fait main à Yaoundé</footer>
       </div>
     </div>
   );
