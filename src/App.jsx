@@ -27,14 +27,14 @@ export default function App() {
 
   const colliers = [
     "/images/45.jpeg",
-    "/images/collier-2.jpg",
-    "/images/collier-3.jpg"
+    "/images/collier-2.jpeg",
+    "/images/collier-3.jpeg"
   ];
 
   const accessoires = [
-    "/images/accessoire-1.jpg",
-    "/images/accessoire-2.jpg",
-    "/images/accessoire-3.jpg"
+    "/images/accessoire-1.jpeg",
+    "/images/accessoire-2.jpeg",
+    "/images/accessoire-3.jpeg"
   ];
 
   // Fonction pour afficher les collections principales
@@ -204,9 +204,9 @@ export default function App() {
           <h3>Ils adorent Beads by Vanelle</h3>
           <div className="gallery">
             <img src="/images/43.jpeg" alt="avis1" />
-            <img src="/images/feedback-2.jpg" alt="avis2" />
-            <img src="/images/feedback-3.jpg" alt="avis3" />
-            <img src="/images/feedback-4.jpg" alt="avis4" />
+            <img src="/images/feedback-2.jpeg" alt="avis2" />
+            <img src="/images/feedback-3.jpeg" alt="avis3" />
+            <img src="/images/feedback-4.jpeg" alt="avis4" />
           </div>
           <p style={{marginTop:12, fontStyle:'italic', textAlign:'center'}}>« Là où le beau rencontre le naturel »</p>
         </section>
