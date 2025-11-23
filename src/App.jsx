@@ -24,14 +24,14 @@ export default function App() {
 
   const colliers = [
     "/images/45.jpeg",
-    "/images/collier-2.jpeg",
-    "/images/collier-3.jpeg"
+    "/images/46.jpeg",
+    
   ];
 
   const accessoires = [
-    "/images/accessoire-1.jpeg",
-    "/images/accessoire-2.jpeg",
-    "/images/accessoire-3.jpeg"
+    "/images/47.jpeg",
+    "/images/52.jpeg",
+    
   ];
 
   const renderCollections = () => (
@@ -205,9 +205,10 @@ export default function App() {
           <h3>Ils adorent Beads by Vanelle</h3>
           <div className="gallery">
             <img src="/images/43.jpeg" alt="avis1" />
-            <img src="/images/feedback-2.jpeg" alt="avis2" />
-            <img src="/images/feedback-3.jpeg" alt="avis3" />
-            <img src="/images/feedback-4.jpeg" alt="avis4" />
+            <img src="/images/48.jpeg" alt="avis2" />
+            <img src="/images/49.jpeg" alt="avis3" />
+            <img src="/images/50.jpeg" alt="avis4" />
+            <img src="/images/51.jpeg" alt="avis5" />
           </div>
           <p style={{marginTop:12, fontStyle:'italic', textAlign:'center'}}>« Là où le beau rencontre le naturel »</p>
         </section>
