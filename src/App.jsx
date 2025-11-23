@@ -93,9 +93,15 @@ export default function App() {
         ))}
       </div>
       <button className="btn" style={{ marginTop: 16 }} onClick={() => {
-        if(selectedCategory) setCurrentView("bracelets");
-        else setCurrentView(currentView); // Retour logique pour collier/accessoires
-      }}>Retour</button>
+        if (selectedCategory) {
+          setCurrentView("bracelets");        // si on vient d’une catégorie de bracelet → retour aux catégories bracelets
+          setSelectedCategory(null);
+        } else {
+          setCurrentView("collections");     // sinon (colliers ou accessoires) → retour direct à l’accueil
+        }
+        }}>
+        Retour aux collections
+      </button>
     </div>
   );
 
